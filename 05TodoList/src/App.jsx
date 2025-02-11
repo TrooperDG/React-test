@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TodoContextProvider } from "./contexts/TodoContext";
 import { TodoForm, TodoItem } from "./components";
 
@@ -25,6 +25,17 @@ function App() {
       )
     );
   }
+
+  useEffect(() => {
+    const localTodos = JSON.parse(localStorage.getItem("todos"));
+    if (localTodos && localTodos.length > 0) {
+      setTodos(localTodos);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <TodoContextProvider
