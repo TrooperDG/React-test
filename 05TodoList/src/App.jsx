@@ -42,7 +42,7 @@ function App() {
       value={{ todos, addTodo, updateTodo, deleteTodo, toggleCompleted }}
     >
       <div className="bg-slate-800 min-h-screen py-8 px-4">
-        <div className=" max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white outline-1">
+        <div className=" max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white ">
           <h1 className="text-2xl font-bold text-center mb-8 mt-2">
             Manage Your Todos
           </h1>
