@@ -5,28 +5,30 @@ import Todos from "./components/Todos";
 import { useSelector } from "react-redux";
 
 function App() {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todo.todos);
+  // console.log(todos);
 
-  const [isUpdate, setIsUpdate] = useState(false);
-  const [updateId, setUpdateId] = useState("");
-  function handleIsUpdate(id) {
-    console.log("hashfkh", id);
-    setUpdateId(id);
+  const [updateTodoId, setUpdateTodoId] = useState("");
+  function handleUpdateTodo(id) {
+    setUpdateTodoId(id);
   }
   return (
-    <>
-      <AddTodo isUpdate={isUpdate} updateId={updateId} />
+    <div className="max-w-2xl m-auto">
+      <AddTodo updateTodoId={updateTodoId} />
       <ul className="list-none">
         {todos.map((todo) => (
           <li
             className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
             key={todo.id}
           >
-            <Todos todo={todo} handleIsUpdate={(id) => handleIsUpdate(id)} />
+            <Todos
+              todo={todo}
+              handleUpdateTodo={(id) => handleUpdateTodo(id)}
+            />
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

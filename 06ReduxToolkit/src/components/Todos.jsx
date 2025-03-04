@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeTodo, updateTodo } from "../features/todo/todoSlice";
 
-function Todos({ todo, handleIsUpdate }) {
+function Todos({ todo, handleUpdateTodo }) {
   // const [input, setInput] = useState(todos.text);
   const dispatch = useDispatch();
 
   return (
     <>
-      <div className="text-white">{todo.text}</div>
+      <div className="text-white ">{todo.text}</div>
 
       <button
         className="bg-cyan-500 rounded-sm p-1 ml-auto mr-2"
-        onClick={() => handleIsUpdate(todo.id)}
+        onClick={() => handleUpdateTodo(todo.id)}
       >
         ✏
       </button>
